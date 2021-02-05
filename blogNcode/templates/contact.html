@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Contact
+		</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="{% static '/CSS/contact.css' %}" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<div class="header">
+			<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+				<div class="container text-uppercase p-2">
+					<a class="navbar-brand text-white font-weight-bold" href="#">Rajesh Rout</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto text-uppercase">
+							<li class="nav-item">
+								<a class="nav-link" href="/index.html">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/about.html">About</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/NewBlog.html">Write a Blog</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<section class="header-section">
+				<div class="center-div">
+					<h1 font-weight-bold>Any query related me?</h1>
+					<p>Contact me through any of the media</p>
+					<div class="header-buttons">
+						<a href="#contact-div">Click here</a>
+					</div>
+				</div>
+			</section>
+		</div>
+		<br>
+		<div class="container" id="contact-div">
+			<h2 class="contact-style text-uppercase">Contact me</h2>
+			<br>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="card card-body h-100" id="profile-wrapper">
+						<img src="{% static '/images/image.jpg' %}" id="profile-pic">
+						<hr>
+						<h4>Hi, I'm Rajesh!</h4>
+						<br>
+						<h6>Want connect with me!</h6>
+						<p>You can find me here any of these social media and text me...</p>
+						<ul class="social-links">
+							<li><a href="" class="fa fa-facebook" target="_blank"></a></li>
+							<li><a href="" class="fa fa-twitter" target="_blank"></a></li>
+							<li><a href="mailto: " class="fa fa-google" target="_blank"></a></li>
+							<li><a href="" class="fa fa-instagram" target="_blank"></a></li>
+							<li><a href="" class="fa fa-linkedin" target="_blank"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="card card-body h-100">
+						<h5 style="text-align: center;">Drop a message!</h5>
+						<hr>
+						<div class="contact-form">
+							<form id="contact-form" method="post" action="{% url 'contact' %}">
+								{% csrf_token %}
+								<input type="text" name="name" class="form-style" placeholder="Name" required="" autocomplete="off"><br>
+								<input type="Email" name="email" class="form-style" placeholder="Email" required="" autocomplete="off"><br>
+								<textarea name="message" class="form-style" rows="4" placeholder="Message" required="" autocomplete="off"></textarea><br>
+								<input type="submit" class="form-style submit" value="SEND MESSAGE">
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+		</div>
+		<footer class="footer">
+			<p>Copyright ©2020 All rights reserved | This site is made by BlogNCode</p>
+			<div class="scrolltop float-right">
+				<i class="fa fa-arrow-up" onclick="topFunction()" id="arrow-up"></i>
+			</div>
+		</footer>
+		<script src="{% static '/JS/contact.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	</body>
+</html>

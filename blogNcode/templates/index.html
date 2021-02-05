@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Blog
+		</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="{% static '/CSS/index.css' %}" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<div class="header">
+			<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+				<div class="container text-uppercase p-2">
+					<a class="navbar-brand text-white font-weight-bold" href="#">Rajesh Rout</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto text-uppercase">
+							<li class="nav-item">
+								<a class="nav-link" href="/index.html">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/about.html">About</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/contact.html">Contact</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/NewBlog.html">Write a Blog</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<section class="header-section">
+				<div class="center-div">
+					<h1 font-weight-bold>We are the developers</h1>
+					<p>Be hunger to learn</p>
+					<div class="header-buttons">
+						<a href="#blogs-div">Read Blogs</a>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<br><br>
+		{% for blog in blogs %}
+		<div class="container" id="blogs-div">
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card card-body h-100" id="profile-wrapper">
+						<h3><b>
+							{{blog.title}}
+							</b>
+						</h3>
+						<p>
+							{{blog.blog}}
+						</p>
+						<h6>
+							<i>Posted By {{blog.name}} on {{blog.date}}.</i>
+						</h6>
+					</div>
+				</div>
+			</div>
+			<br>
+			
+		</div>
+		{% endfor %}
+		<footer class="footer">
+			<p>Copyright ©2020 All rights reserved | This site is made by BlogNCode<br>
+			</p>
+			<div class="scrolltop float-right">
+				<i class="fa fa-arrow-up" onclick="topFunction()" id="arrow-up"></i>
+			</div>
+		</footer>
+		<script src="{% static '/JS/index.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	</body>
+</html>
